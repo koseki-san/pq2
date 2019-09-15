@@ -22,7 +22,52 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Interface
+
+```ruby
+pq = Pq2.new
+pq.push(1)
+
+pq.pop
+# => 1
+
+pq.empty?
+# => true
+```
+
+### Compare
+
+```ruby
+emails = [
+  Email.new('a@github.com'),
+  Email.new('a@example.com'),
+  Email.new('b@github.com'),
+  Email.new('b@example.com'),
+]
+pq = Pq2.new(emails)
+pq.pop
+# => 'a@example.com'
+pq.pop
+# => 'b@example.com'
+pq.pop
+# => 'a@github.com'
+pg.pop
+# => 'b@github.com'
+
+class Email
+  attr_reader :domain, :local
+
+  def initialize(email)
+    @local, @domain = email.split(?@)
+  end
+
+  def <=>(other)
+    order = domain <=> other.domain
+    return order unless order == 0
+    local <=> other.domain
+  end
+end
+```
 
 ## Development
 
@@ -32,7 +77,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pq2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/koseki-san/pq2. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
