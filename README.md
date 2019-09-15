@@ -1,28 +1,10 @@
 # Pq2
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pq2`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'pq2'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install pq2
+Priority Queue implementation using Heap.
 
 ## Usage
 
-### Interface
+### Scalar
 
 ```ruby
 pq = Pq2.new
@@ -43,7 +25,7 @@ pq.empty?
 # => true
 ```
 
-### Compare
+### Comparable
 
 ```ruby
 emails = [
@@ -65,7 +47,6 @@ pg.pop
 class Email
   include Comparable
 
-
   attr_reader :domain, :local
 
   def initialize(email)
@@ -79,6 +60,18 @@ class Email
   end
 end
 ```
+
+## Installation
+
+Add this line to your application's Gemfile:
+
+```ruby
+gem 'pq2', git: 'git@github.com:koseki-san/pq2.git', branch: 'master'
+```
+
+And then execute:
+
+    $ bundle
 
 ## Development
 
