@@ -51,4 +51,13 @@ RSpec.describe Pq2 do
     end
   end
 
+  describe '#pop' do
+    subject { queue.pop }
+
+    let(:queue) { described_class.new }
+
+    context 'queue is empty' do
+      it { is_expected.to be nil }
+    end
+  end
 end

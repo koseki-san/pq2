@@ -21,6 +21,8 @@ class Pq2
   end
 
   def pop
+    return if empty?
+
     r = @heap.first
     @size = @size.pred
     x = @heap[@size]
