@@ -12,6 +12,7 @@ RSpec.describe Pq2 do
       pq.push(3)
       expect(pq.empty?).to be false
       expect(pq.pop).to eq 1
+      expect(pq.first).to eq 2
       expect(pq.pop).to eq 2
       expect(pq.pop).to eq 3
       expect(pq.empty?).to be true
@@ -44,7 +45,7 @@ RSpec.describe Pq2 do
       end
     end
 
-    it 'does something useful' do
+    it do
       expect(pq.pop).to eq email2
       expect(pq.pop).to eq email4
       expect(pq.pop).to eq email1

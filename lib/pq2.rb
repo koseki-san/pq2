@@ -37,6 +37,10 @@ class Pq2
     r
   end
 
+  def first
+    @heap.first
+  end
+
   def empty?
     @size.zero?
   end

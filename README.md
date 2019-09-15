@@ -32,6 +32,8 @@ pq.push(3)
 
 pq.pop
 # => 1
+pq.first
+# => 2
 pq.pop
 # => 2
 pq.pop
@@ -62,8 +64,8 @@ pg.pop
 
 class Email
   include Comparable
-  
-  
+
+
   attr_reader :domain, :local
 
   def initialize(email)
