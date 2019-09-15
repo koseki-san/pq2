@@ -1,6 +1,8 @@
 # Pq2
 
-Priority Queue implementation using Heap.
+Priority Queue implementation using Heap in pure Ruby.
+
+Remarkable, this library does not do garbage collection, because it is optimized for short-lived processes.
 
 ## Usage
 
@@ -65,6 +67,50 @@ gem 'pq2', git: 'git@github.com:koseki-san/pq2.git', branch: 'master'
 And then execute:
 
     $ bundle
+
+## Benchmark
+
+```
+ruby benchmark/benchmark.rb
+
+When the number of elements is 100.
+Warming up --------------------------------------
+                 pq2   505.000  i/100ms
+    naive sorted set    34.000  i/100ms
+Calculating -------------------------------------
+                 pq2      5.055k (± 2.1%) i/s -     25.755k in   5.097600s
+    naive sorted set    338.335  (± 2.1%) i/s -      1.700k in   5.026883s
+
+Comparison:
+                 pq2:     5054.6 i/s
+    naive sorted set:      338.3 i/s - 14.94x  slower
+
+
+When the number of elements is 1000.
+Warming up --------------------------------------
+                 pq2    32.000  i/100ms
+    naive sorted set     1.000  i/100ms
+Calculating -------------------------------------
+                 pq2    322.963  (± 2.2%) i/s -      1.632k in   5.055332s
+    naive sorted set      2.111  (± 0.0%) i/s -     11.000  in   5.211523s
+
+Comparison:
+                 pq2:      323.0 i/s
+    naive sorted set:        2.1 i/s - 153.00x  slower
+
+
+When the number of elements is 10000.
+Warming up --------------------------------------
+                 pq2     2.000  i/100ms
+    naive sorted set     1.000  i/100ms
+Calculating -------------------------------------
+                 pq2     22.911  (± 0.0%) i/s -    116.000  in   5.063799s
+    naive sorted set      0.010  (± 0.0%) i/s -      1.000  in 103.354271s
+
+Comparison:
+                 pq2:       22.9 i/s
+    naive sorted set:        0.0 i/s - 2367.94x  slower
+```
 
 ## Development
 

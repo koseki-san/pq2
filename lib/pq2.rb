@@ -1,4 +1,4 @@
-require 'pq2/version'
+require_relative 'pq2/version'
 
 class Pq2
   def initialize(enumerable = nil)
