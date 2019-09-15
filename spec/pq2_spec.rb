@@ -21,11 +21,10 @@ RSpec.describe Pq2 do
 
   context 'README.md example 2' do
     let(:pq) { described_class.new(emails) }
-    let(:emails) { [email1, email2, email3, email4] }
+    let(:emails) { [email1, email2, email3] }
     let(:email1) { Email.new('a@github.com') }
     let(:email2) { Email.new('a@example.com') }
-    let(:email3) { Email.new('b@github.com') }
-    let(:email4) { Email.new('b@example.com') }
+    let(:email3) { Email.new('b@example.com') }
 
     before do
       class Email
@@ -47,9 +46,9 @@ RSpec.describe Pq2 do
 
     it do
       expect(pq.pop).to eq email2
-      expect(pq.pop).to eq email4
-      expect(pq.pop).to eq email1
       expect(pq.pop).to eq email3
+      expect(pq.pop).to eq email1
     end
   end
+
 end

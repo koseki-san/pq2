@@ -28,12 +28,7 @@ pq.empty?
 ### Comparable
 
 ```ruby
-emails = [
-  Email.new('a@github.com'),
-  Email.new('a@example.com'),
-  Email.new('b@github.com'),
-  Email.new('b@example.com'),
-]
+emails = %w[a@github.com a@example.com b@example.com].map(&Email.method(:new))
 pq = Pq2.new(emails)
 pq.pop
 # => 'a@example.com'
@@ -41,8 +36,6 @@ pq.pop
 # => 'b@example.com'
 pq.pop
 # => 'a@github.com'
-pg.pop
-# => 'b@github.com'
 
 class Email
   include Comparable
