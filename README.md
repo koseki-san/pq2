@@ -26,10 +26,16 @@ Or install it yourself as:
 
 ```ruby
 pq = Pq2.new
+pq.push(2)
 pq.push(1)
+pq.push(3)
 
 pq.pop
 # => 1
+pq.pop
+# => 2
+pq.pop
+# => 3
 
 pq.empty?
 # => true
@@ -55,6 +61,9 @@ pg.pop
 # => 'b@github.com'
 
 class Email
+  include Comparable
+  
+  
   attr_reader :domain, :local
 
   def initialize(email)
